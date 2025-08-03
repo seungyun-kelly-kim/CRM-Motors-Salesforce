@@ -1,18 +1,14 @@
-# Salesforce DX Project: Next Steps
+# 🚗 Automotive CRM Project with Salesforce
+This project was developed as part of a CRM implementation program for an automotive company using Salesforce. The goal was to design a customer journey that spans the entire vehicle ownership lifecycle—from initial test drive scheduling to contract signing, after-sales service, and follow-up surveys.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+# Project Overview
+We aimed to visualize and implement a comprehensive CRM system tailored for the automotive industry, integrating both Sales and After-Sales Service processes. The project utilized Salesforce core functionalities such as Leads, Opportunities, Cases, and Assets, and was structured to simulate real-world workflows across various departments (sales, service, marketing).
 
-## How Do You Plan to Deploy Your Changes?
+# Key Highlights
+Designed a multi-step Experience Cloud portal to simulate the customer reservation journey.
+Built automation flows for service scheduling, technician assignment, and satisfaction survey dispatch.
+Structured the data model to reflect automotive-specific processes, including vehicle delivery, warranty tracking, and repeat purchase triggers.
+Prioritized a customer-centric approach, ensuring that every interaction point aligned with a seamless and personalized experience.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
-
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+# Why It Matters
+In industries like automotive, CRM is not just about managing records—it’s about connecting fragmented processes to deliver unified and personalized customer experiences. This project reflects that mindset, and represents my first step toward becoming a Salesforce developer who understands not only the platform, but also the business context it operates within.
