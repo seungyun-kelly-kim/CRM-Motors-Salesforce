@@ -1,0 +1,78 @@
+<!-- ✅ 수정된 파일: customerAsset.html -->
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">02</span>
+                    <span class="step-title">보유 차량 정보</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 28.6%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <!-- 차량 정보 섹션 -->
+                <div class="section">
+                    <div class="section-content">
+                <template if:true={assets}>
+                    <template for:each={assets} for:item="asset">
+                        <div key={asset.assetInfo.Id} class="asset-card">
+                            <p><strong>차량명:</strong> {asset.assetInfo.Name}</p>
+                            <p><strong>연식:</strong> {asset.assetInfo.Year__c}</p>
+                            <p><strong>차대번호(VIN):</strong> {asset.assetInfo.Asset_Related_VIN__c}</p>
+                            <p><strong>주행 가능 거리:</strong> {asset.assetInfo.RangeKm__c} km</p>
+                            <div class="warranty-info">
+                                <template if:true={asset.warrantyExpirationDate}>
+                                    <p><strong>보증 만료일:</strong> {asset.formattedWarrantyDate}</p>
+                                    <p class="warranty-status">
+                                        <lightning-icon 
+                                            icon-name={asset.warrantyIcon}
+                                            size="x-small"
+                                            variant={asset.warrantyIconVariant}>
+                                        </lightning-icon>
+                                        <strong>{asset.warrantyStatusText}</strong>
+                                    </p>
+                                </template>
+                                <template if:false={asset.warrantyExpirationDate}>
+                                    <p><strong>보증 정보:</strong> 보증 정보 없음</p>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </template>
+                        <template if:false={assets}>
+                            <p>등록된 차량이 없습니다.</p>
+                        </template>
+                    </div>
+                </div>
+
+                <!-- 버튼을 카드 내부로 이동 -->
+                <div class="section">
+                    <div class="action-buttons">
+                        <lightning-button 
+                            label="이전" 
+                            variant="neutral" 
+                            onclick={handlePrevious}
+                            icon-name="utility:back"
+                            icon-position="left">
+                        </lightning-button>
+                        <lightning-button 
+                            label="다음 단계" 
+                            variant="brand" 
+                            onclick={handleNext}
+                            icon-name="utility:forward"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

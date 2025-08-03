@@ -1,0 +1,100 @@
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">04</span>
+                    <span class="step-title">정비소 선택</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 57.2%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <!-- 정비소 선택 섹션 -->
+                <div class="section">
+                    <div class="section-content">
+                
+                <div class="selectors">
+                    <lightning-record-edit-form object-api-name="Repair_Shop__c">
+                        <lightning-input-field 
+                            field-name="Province__c"
+                            value={selectedProvince}
+                            onchange={handleProvinceChange}>
+                        </lightning-input-field>
+                        
+                        <lightning-input-field 
+                            field-name="City__c"
+                            value={selectedCity}
+                            onchange={handleCityChange}>
+                        </lightning-input-field>
+                    </lightning-record-edit-form>
+                </div>
+                
+        
+        <template if:true={searchPerformed}>
+            <div class="map-list-wrapper">
+            <div class="repair-list">
+                <template if:true={hasRepairShops}>
+                    <h3>정비소 목록</h3>
+                    <template for:each={repairShops} for:item="shop">
+                        <div key={shop.Id} class={shop.cssClass} onclick={handleShopClick} data-id={shop.Id}>
+                            <div class="shop-name">{shop.Name}</div>
+                            <div class="shop-address">{shop.Address__c}</div>
+                            <template if:true={shop.Phone_Number__c}>
+                                <div class="shop-phone">{shop.Phone_Number__c}</div>
+                            </template>
+                        </div>
+                    </template>
+                </template>
+                
+                <template if:true={showNoResults}>
+                    <div class="no-results">
+                        해당 지역에 등록된 정비소가 없습니다.
+                    </div>
+                </template>
+            </div>
+            
+            <div class="map-container">
+                <lightning-map
+                    map-markers={mapMarkers}
+                    center={mapCenter}
+                    zoom-level={zoomLevel}
+                    markers-title="정비소 위치"
+                    class="map-box">
+                </lightning-map>
+            </div>
+
+                    </div>
+                    </template>
+
+                    <!-- 버튼을 카드 내부로 이동 -->
+                    <div class="action-buttons">
+                        <lightning-button
+                            label="이전"
+                            variant="neutral"
+                            onclick={handlePrevious}
+                            icon-name="utility:back"
+                            icon-position="left">
+                        </lightning-button>
+                        <lightning-button
+                            label="다음 단계"
+                            variant="brand"
+                            onclick={handleNext}
+                            disabled={isNextDisabled}
+                            icon-name="utility:forward"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

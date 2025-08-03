@@ -1,0 +1,245 @@
+.full-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0 0 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.content-box {
+    width: 70%;
+    max-width: 800px;
+    background: #fff;
+    padding: 50px 60px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 400px;
+    box-sizing: border-box;
+}
+
+/* 모바일 반응형 (iPhone 기준) */
+@media (max-width: 480px) {
+    .full-wrapper {
+        padding: 10px 0 0 0;
+    }
+    
+    .content-box {
+        width: 95%;
+        padding: 20px 15px;
+        min-height: 300px;
+        margin: 0 10px;
+    }
+}
+
+.step-header {
+    background-color: #1a1a1a;
+    color: white;
+    padding: 6px 14px;
+    font-weight: bold;
+    font-size: 14px;
+    display: inline-block;
+    border-radius: 4px;
+    margin-bottom: 24px;
+}
+
+/* Step 7 완료 화면 - 다른 단계와 통일된 스타일 */
+.page-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.step-number {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.step-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745 0%, #20c997 100%);
+    transition: width 0.3s ease;
+}
+
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    width: 100%;
+}
+
+.unified-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.section {
+    padding: 32px;
+}
+
+.completion-section {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.success-icon {
+    margin-bottom: 24px;
+    animation: bounceIn 0.6s ease-out;
+}
+
+.success-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 16px;
+    animation: slideInUp 0.5s ease-out 0.2s both;
+}
+
+.success-message {
+    font-size: 18px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    line-height: 1.6;
+    animation: slideInUp 0.5s ease-out 0.4s both;
+}
+
+.success-details {
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 12px;
+    padding: 20px;
+    margin-top: 24px;
+    animation: slideInUp 0.5s ease-out 0.6s both;
+}
+
+.success-details p {
+    color: #374151;
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .section {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px 16px;
+    }
+    
+    .header-content {
+        padding: 16px;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+    
+    .success-title {
+        font-size: 24px;
+    }
+    
+    .success-message {
+        font-size: 16px;
+    }
+}

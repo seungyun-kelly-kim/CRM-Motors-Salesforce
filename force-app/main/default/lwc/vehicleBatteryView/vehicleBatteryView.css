@@ -1,0 +1,299 @@
+.vehicle-battery-container {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Vehicle Header */
+.vehicle-header {
+    margin-bottom: 20px;
+}
+
+.vehicle-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.vehicle-tabs {
+    display: flex;
+    gap: 20px;
+}
+
+.tab {
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    font-weight: 500;
+}
+
+.tab.active {
+    border-bottom-color: #0070d2;
+    color: #0070d2;
+}
+
+/* Vehicle Status */
+.vehicle-status {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.status-item {
+    text-align: center;
+}
+
+.status-label {
+    font-size: 12px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.status-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.status-value.high {
+    color: #4CAF50;
+}
+
+/* Vehicle Image */
+.vehicle-image-container {
+    position: relative;
+    text-align: center;
+    margin: 30px 0;
+    display: inline-block;
+}
+
+.vehicle-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Battery Hover Area - 배터리 위치에 맞게 조정 */
+.battery-hover-area {
+    position: absolute;
+    /* 차량 이미지에서 배터리 위치 (우측 상단으로 이동) */
+    left: 45%;
+    top: 55%;
+    width: 25%;
+    height: 20%;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    border-radius: 50%; /* 동그라미 모양 */
+}
+
+.battery-hover-area:hover {
+    background-color: rgba(0, 112, 210, 0.2);
+    border: 2px dashed #0070d2;
+}
+
+/* Battery Tooltip */
+.battery-tooltip {
+    position: fixed;
+    z-index: 1000;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    padding: 20px;
+    min-width: 300px;
+    max-width: 350px;
+    border: 1px solid #e0e5ee;
+    pointer-events: none;
+    animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.tooltip-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eee;
+}
+
+.battery-icon {
+    color: #0070d2;
+}
+
+.tooltip-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+}
+
+.tooltip-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Battery Level Section */
+.battery-level-section, .battery-health-section {
+    margin-bottom: 12px;
+}
+
+.level-info, .health-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+.level-label, .health-label {
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.level-value, .health-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #f0f0f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.3s ease;
+}
+
+/* Battery Details */
+.battery-details {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px 0;
+}
+
+.detail-label {
+    font-size: 13px;
+    color: #666;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 13px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Vehicle Events */
+.vehicle-events {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.events-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    color: #0070d2;
+}
+
+.events-header h3 {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.event-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 6px;
+    background: #f8f9fa;
+}
+
+.event-item.alert {
+    border-left: 4px solid #F44336;
+}
+
+.event-item.repair {
+    border-left: 4px solid #4CAF50;
+}
+
+.event-content {
+    flex: 1;
+}
+
+.event-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-desc {
+    font-size: 13px;
+    color: #666;
+    margin: 2px 0;
+}
+
+.event-date {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .vehicle-status {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .battery-tooltip {
+        min-width: 280px;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .vehicle-status {
+        grid-template-columns: 1fr;
+    }
+    
+    .battery-tooltip {
+        min-width: 260px;
+        max-width: 280px;
+        padding: 16px;
+    }
+}

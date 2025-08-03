@@ -1,0 +1,75 @@
+<!-- ✅ reservationFlow.html 수정본 (STEP6 이벤트 리스너 추가) -->
+<template>
+    <template if:true={isStep1}>
+        <c-customer-info onnextstep={handleStep1}></c-customer-info>
+    </template>
+    <template if:true={isStep2}>
+        <c-customer-asset customer-info={customerInfo} onnextstep={handleStep2} onprevious={handlePrevious}></c-customer-asset>
+    </template>
+    <template if:true={isStep3}>
+        <c-repair-selector onnextstep={handleStep3} onprevious={handlePrevious}></c-repair-selector>
+    </template>
+    <template if:true={isStep4}>
+        <c-repair-shop-selector onnextstep={handleStep4} onprevious={handlePrevious}></c-repair-shop-selector>
+    </template>
+    <template if:true={isStep5}>
+        <c-final-repair-reservation
+            account-id={customerInfo.accountId}
+            repair-shop-id={repairShopId}
+            selected-service-details={selectedServiceDetails}
+            onnextstep={handleStep5}
+            onprevious={handlePrevious}>
+        </c-final-repair-reservation>
+    </template>
+    <template if:true={isStep6}>
+        <c-step6-final-confirm
+            account-id={customerInfo.accountId}
+            asset-id={assetId}
+            selected-service-details={selectedServiceDetails}
+            service-type={serviceType}
+            service-type-value={serviceTypeValue}
+            repair-shop-id={repairShopId}
+            repair-shop-name={repairShopName}
+            selected-date={selectedDate}
+            selected-slot-time={selectedSlotTime}
+            description={serviceDetails.Description__c}
+            onnextstep={handleStep6}
+            onprevious={handlePrevious}>
+        </c-step6-final-confirm>
+    </template>
+    <template if:true={isStep7}>
+        <div class="page-container">
+            <!-- 상단 헤더 -->
+            <div class="page-header">
+                <div class="header-content">
+                    <div class="step-indicator">
+                        <span class="step-number">✓</span>
+                        <span class="step-title">예약 완료</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 메인 콘텐츠 -->
+            <div class="main-content">
+                <div class="unified-card">
+                    <div class="section">
+                        <div class="completion-section">
+                            <div class="success-icon">
+                                <lightning-icon icon-name="utility:success" size="large" variant="success"></lightning-icon>
+                            </div>
+                            <h2 class="success-title">예약이 완료되었습니다!</h2>
+                            <p class="success-message">정비 예약이 성공적으로 접수되었습니다.</p>
+                            <div class="success-details">
+                                <p>곧 담당 정비사로부터 연락을 받으실 예정입니다.</p>
+                                <p>예약 관련 문의사항이 있으시면 언제든지 연락 주세요.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

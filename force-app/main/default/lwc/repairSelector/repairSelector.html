@@ -1,0 +1,106 @@
+<!-- ✅ 파일명: repairSelector.html -->
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">03</span>
+                    <span class="step-title">정비내용 선택</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 42.9%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <!-- 정비내용 선택 섹션 -->
+                <div class="section">
+                    <div class="section-content">
+                
+                <!-- 점검 유형 선택 -->
+                <lightning-combobox
+                    label="점검 유형"
+                    value={selectedServiceTypeValue}
+                    options={inspectionTypeOptions}
+                    onchange={handleServiceTypeValueChange}
+                    placeholder="점검 유형을 선택하세요">
+                </lightning-combobox>
+
+                <!-- 서비스 신청 유형 (단일 선택) -->
+                <lightning-combobox
+                    label="서비스 신청 유형"
+                    value={selectedServiceType}
+                    options={serviceTypeOptions}
+                    onchange={handleServiceTypeChange}
+                    placeholder="서비스 신청 유형을 선택하세요">
+                </lightning-combobox>
+
+                <!-- 서비스 신청 세부 유형 (다중 선택) -->
+                <template if:true={selectedServiceType}>
+                    <div class="multi-select-box">
+                        <label class="slds-form-element__label">세부 정비 항목 (다중 선택 가능)</label>
+                        <template for:each={filteredDetailOptions} for:item="option">
+                            <div key={option.value} class="option-row">
+                                <lightning-input 
+                                    type="checkbox"
+                                    label={option.label}
+                                    checked={option.isSelected}
+                                    data-value={option.value}
+                                    onchange={handleDetailChange}>
+                                </lightning-input>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+
+                <!-- 설명 입력 필드 -->
+                <lightning-textarea
+                    label="기타 설명"
+                    value={description}
+                    onchange={handleDescriptionChange}
+                    placeholder="구체적으로 어떤 문제를 겪고 계신지 알려주세요">
+                </lightning-textarea>
+
+                <!-- 선택된 항목 표시 (디버깅용) -->
+                <template if:true={hasSelectedDetails}>
+                    <div class="selected-items">
+                        <p><strong>선택된 항목:</strong></p>
+                        <ul>
+                            <template for:each={selectedDetailsDisplay} for:item="item">
+                                <li key={item}>{item}</li>
+                            </template>
+                            </ul>
+                        </div>
+                    </template>
+                    </div>
+                </div>
+
+                <!-- 버튼을 카드 내부로 이동 -->
+                <div class="section">
+                    <div class="action-buttons">
+                        <lightning-button 
+                            label="이전" 
+                            variant="neutral"
+                            onclick={handlePrevious}
+                            icon-name="utility:back"
+                            icon-position="left">
+                        </lightning-button>
+                        <lightning-button 
+                            label="다음 단계" 
+                            variant="brand"
+                            disabled={isNextDisabled}
+                            onclick={handleNext}
+                            icon-name="utility:forward"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

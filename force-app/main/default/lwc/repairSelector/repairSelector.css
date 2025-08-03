@@ -1,0 +1,211 @@
+/* customerInfo와 동일한 현대적 웹 레이아웃 CSS */
+.page-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    flex-direction: column;
+}
+
+/* 상단 헤더 */
+.page-header {
+    background: white;
+    border-bottom: 1px solid #e5e7eb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.step-number {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.step-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.progress-bar {
+    width: 300px;
+    height: 8px;
+    background: #e5e7eb;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 32px 24px;
+    width: 100%;
+}
+
+/* 통합된 큰 카드 */
+.unified-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unified-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 섹션 스타일 */
+.section {
+    padding: 32px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #f3f4f6;
+}
+
+.section-header h2 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.section-content {
+    margin-top: 16px;
+}
+
+/* 정비 선택 폼 스타일 */
+.section-content lightning-combobox {
+    margin-bottom: 20px;
+}
+
+.section-content lightning-textarea {
+    margin-bottom: 20px;
+}
+
+/* 다중 선택 박스 */
+.multi-select-box {
+    margin: 20px 0;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+}
+
+.multi-select-box .slds-form-element__label {
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 12px;
+    display: block;
+}
+
+.option-row {
+    margin: 8px 0;
+}
+
+/* 선택된 항목 표시 */
+.selected-items {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f0f9ff;
+    border: 1px solid #bae6fd;
+    border-radius: 8px;
+}
+
+.selected-items p {
+    margin-bottom: 8px;
+    color: #0c4a6e;
+    font-weight: 600;
+}
+
+.selected-items ul {
+    margin: 0;
+    padding-left: 20px;
+    color: #075985;
+}
+
+.selected-items li {
+    margin: 4px 0;
+}
+
+/* 액션 버튼 */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .header-content {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        max-width: 400px;
+    }
+    
+    .section {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        padding: 20px 16px;
+    }
+    
+    .header-content {
+        padding: 16px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .section {
+        padding: 20px;
+    }
+}

@@ -1,0 +1,379 @@
+/* 페이지 컨테이너 - 컴팩트 */
+.page-container {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+/* 로딩 컨테이너 - 컴팩트 */
+.loading-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+/* 메인 콘텐츠 */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 통합 카드 */
+.unified-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid #e5e7eb;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.unified-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* 섹션 - 컴팩트 */
+.section {
+    padding: 16px;
+}
+
+/* 주문 헤더 - 컴팩트 */
+.order-header {
+    text-align: center;
+    margin-bottom: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.order-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 6px 0;
+}
+
+.order-number {
+    font-size: 14px;
+    color: #6b7280;
+    margin: 0;
+    font-weight: 500;
+}
+
+/* 취소 상태 */
+.cancelled-container {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 2px solid #fca5a5;
+    border-radius: 16px;
+    margin: 20px 0;
+}
+
+.cancelled-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.cancelled-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #dc2626;
+    margin: 0;
+}
+
+.cancelled-message {
+    font-size: 16px;
+    color: #7f1d1d;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 진행률 섹션 - 컴팩트 */
+.progress-section {
+    margin: 16px 0;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.progress-label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.progress-percent {
+    font-size: 16px;
+    font-weight: 700;
+    color: #059669;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e5e7eb;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+    border-radius: 6px;
+    transition: width 0.6s ease-in-out;
+    position: relative;
+}
+
+.progress-fill::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        45deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.3) 50%,
+        transparent 60%
+    );
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* 가로 나열 단계별 상태 - 컴팩트 */
+.status-steps-horizontal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    padding: 12px;
+    background: #f9fafb;
+    border-radius: 8px;
+}
+
+.step-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* 단계 아이콘 - 기본 크기 */
+.step-icon-horizontal {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* 활성 단계 아이콘 - 더 크게 */
+.step-icon-horizontal.active {
+    width: 28px;
+    height: 28px;
+    transform: scale(1.1);
+}
+
+.step-icon-horizontal.completed {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.step-icon-horizontal.active {
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+    animation: pulse-small 2s infinite;
+    transform: scale(1.1);
+}
+
+.step-icon-horizontal.pending {
+    background: #e5e7eb;
+    color: #9ca3af;
+}
+
+@keyframes pulse-small {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* 단계 라벨 - 기본 크기 */
+.step-label-horizontal {
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-right: 8px;
+    transition: all 0.3s ease;
+}
+
+.step-label-horizontal.completed {
+    color: #059669;
+}
+
+.step-label-horizontal.active {
+    color: #059669;
+    font-weight: 700;
+    font-size: 13px;
+    transform: scale(1.1);
+}
+
+.step-label-horizontal.pending {
+    color: #6b7280;
+}
+
+/* 연결선 - 더 작게 */
+.step-connector {
+    width: 30px;
+    height: 2px;
+    margin: 0 6px;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.step-connector.completed {
+    background: linear-gradient(90deg, #10b981 0%, #059669 100%);
+}
+
+.step-connector.active {
+    background: linear-gradient(90deg, #10b981 0%, #e5e7eb 100%);
+}
+
+.step-connector.pending {
+    background: #e5e7eb;
+}
+
+/* 상태 메시지 - 컴팩트 */
+.status-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+    border: 1px solid #bae6fd;
+    border-radius: 6px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #0c4a6e;
+    font-weight: 500;
+}
+
+.info-icon {
+    color: #0284c7;
+}
+
+/* 주문 세부 정보 - 컴팩트 */
+.order-details {
+    margin-top: 16px;
+    padding-top: 12px;
+    border-top: 1px solid #f3f4f6;
+}
+
+.details-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1f2937;
+    margin: 0 0 12px 0;
+}
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    background: #f9fafb;
+    border-radius: 4px;
+    border-left: 3px solid #e5e7eb;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: #374151;
+    font-size: 12px;
+}
+
+.detail-value {
+    font-weight: 500;
+    color: #1f2937;
+    font-size: 12px;
+    text-align: right;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 16px;
+    }
+    
+    .section {
+        padding: 24px 20px;
+    }
+    
+    .order-title {
+        font-size: 24px;
+    }
+    
+    .step {
+        padding: 16px;
+    }
+    
+    .step-icon-container {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .step-label {
+        font-size: 16px;
+    }
+    
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .detail-value {
+        text-align: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .progress-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .step {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .step-content {
+        padding-top: 12px;
+    }
+}

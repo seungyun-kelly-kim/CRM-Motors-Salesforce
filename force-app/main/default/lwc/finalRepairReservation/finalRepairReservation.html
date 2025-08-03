@@ -1,0 +1,76 @@
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">05</span>
+                    <span class="step-title">방문 예약</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 71.5%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <div class="section">
+                    <div class="section-content">
+                <lightning-input 
+                    type="date" 
+                    label="예약 날짜" 
+                    value={selectedDate} 
+                    min={todayDate}
+                    onchange={handleDateChange}>
+                </lightning-input>
+
+                <template if:true={hasSlots}>
+                    <div class="time-slot-list">
+                        <p>가능한 시간대 선택</p>
+                        <template for:each={availableTimeSlots} for:item="slot">
+                            <lightning-button 
+                                key={slot.startTime}
+                                label={slot.fullLabel}
+                                variant={slot.variant}
+                                disabled={slot.isDisabled}
+                                data-time={slot.startTime}
+                                onclick={handleSlotSelect}
+                                class="slot-button">
+                            </lightning-button>
+                        </template>
+                    </div>
+                </template>
+
+                    <template if:true={selectedSlot}>
+                        <p class="selected-info">선택된 시간: {selectedSlot}</p>
+                    </template>
+                    </div>
+                </div>
+
+                <!-- 버튼을 카드 내부로 이동 -->
+                <div class="section">
+                    <div class="action-buttons">
+                        <lightning-button 
+                            label="이전" 
+                            variant="neutral" 
+                            onclick={handlePrevious}
+                            icon-name="utility:back"
+                            icon-position="left">
+                        </lightning-button>
+                        <lightning-button 
+                            label="다음 단계" 
+                            variant="brand" 
+                            onclick={handleNext} 
+                            disabled={isNextDisabled}
+                            icon-name="utility:forward"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

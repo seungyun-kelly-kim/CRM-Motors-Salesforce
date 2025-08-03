@@ -1,0 +1,98 @@
+<template>
+    <div class="page-container">
+        <!-- 로딩 스피너 -->
+        <template if:true={isLoading}>
+            <div class="loading-container">
+                <lightning-spinner alternative-text="주문 정보 로딩 중..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- 메인 컨텐츠 -->
+        <template if:false={isLoading}>
+            <div class="main-content">
+                <!-- 주문 정보 카드 -->
+                <div class="unified-card">
+                    <div class="section">
+                        <div class="order-header">
+                            <h2 class="order-title">주문 배송 현황</h2>
+                            <template if:true={orderInfo.orderNumber}>
+                                <p class="order-number">주문번호: {orderInfo.orderNumber}</p>
+                            </template>
+                        </div>
+
+                        <!-- 주문 취소 상태 -->
+                        <template if:true={isCancelled}>
+                            <div class="cancelled-container">
+                                <div class="cancelled-header">
+                                    <lightning-icon icon-name="utility:error" variant="error" size="large"></lightning-icon>
+                                    <h3 class="cancelled-title">주문 취소됨</h3>
+                                </div>
+                                <p class="cancelled-message">{statusMessage}</p>
+                            </div>
+                        </template>
+
+                        <!-- 정상 배송 상태 -->
+                        <template if:false={isCancelled}>
+                            <!-- 진행률 표시 -->
+                            <div class="progress-section">
+                                <div class="progress-header">
+                                    <span class="progress-label">배송 진행률</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style={progressBarStyle}></div>
+                                </div>
+                            </div>
+
+                            <!-- 단계별 상태 - 가로 나열 -->
+                            <div class="status-steps-horizontal">
+                                <template for:each={processedSteps} for:item="step" for:index="index">
+                                    <div key={step.key} class="step-horizontal">
+                                        <div class={step.stepIconClass}>
+                                            <lightning-icon 
+                                                icon-name={step.icon} 
+                                                size="x-small"
+                                                class="step-icon">
+                                            </lightning-icon>
+                                        </div>
+                                        <span class={step.stepLabelClass}>{step.label}</span>
+                                        <template if:false={step.isLast}>
+                                            <div class={step.connectorClass}></div>
+                                        </template>
+                                    </div>
+                                </template>
+                            </div>
+
+                        </template>
+
+                        <!-- 주문 세부 정보 -->
+                        <template if:true={orderInfo.orderName}>
+                            <div class="order-details">
+                                <h3 class="details-title">주문 정보</h3>
+                                <div class="detail-grid">
+                                    <template if:true={orderInfo.orderName}>
+                                        <div class="detail-item">
+                                            <span class="detail-label">주문명:</span>
+                                            <span class="detail-value">{orderInfo.orderName}</span>
+                                        </div>
+                                    </template>
+                                    <template if:true={orderInfo.createdDate}>
+                                        <div class="detail-item">
+                                            <span class="detail-label">주문일:</span>
+                                            <span class="detail-value">{orderInfo.createdDate}</span>
+                                        </div>
+                                    </template>
+                                    <template if:true={orderInfo.deliveryDate}>
+                                        <div class="detail-item">
+                                            <span class="detail-label">배송 예정일:</span>
+                                            <span class="detail-value">{orderInfo.deliveryDate}</span>
+                                        </div>
+                                    </template>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>

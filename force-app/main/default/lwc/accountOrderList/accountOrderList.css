@@ -1,0 +1,201 @@
+.card-title {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.view-all-btn {
+    font-size: 12px;
+}
+
+.order-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
+}
+
+.order-card {
+    background: white;
+    border: 1px solid #d0d0d0;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    transition: all 0.2s ease;
+    aspect-ratio: 3/2;
+    display: flex;
+    flex-direction: column;
+}
+
+.order-card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    transform: translateY(-1px);
+}
+
+/* 파란색 배경 헤더 */
+.order-header {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.primary-header {
+    background: #1976d2;
+    color: white;
+}
+
+.header-content {
+    flex: 1;
+}
+
+.order-title {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+}
+
+.order-name {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+.order-details {
+    padding: 12px 16px;
+    background: white;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.detail-row:last-child {
+    border-bottom: none;
+}
+
+.detail-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+.detail-value.amount {
+    font-weight: 600;
+    color: #1976d2;
+}
+
+.detail-value.vin {
+    font-family: monospace;
+    font-size: 12px;
+    background: #f5f5f5;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* 주문 상태 클래스 */
+.status-active {
+    background: #4caf50;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-draft {
+    background: #ff9800;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-default {
+    background: #9e9e9e;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.status-unknown {
+    background: #9e9e9e;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* 배송 상태 클래스 */
+.delivery-completed {
+    color: #4caf50;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.delivery-shipping {
+    color: #2196f3;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.delivery-preparing {
+    color: #ff9800;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.delivery-default,
+.delivery-unknown {
+    color: #666;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* 빈 상태 */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+}
+
+.empty-icon {
+    opacity: 0.6;
+    margin-bottom: 16px;
+}
+
+.empty-message {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .order-grid {
+        grid-template-columns: 1fr;
+    }
+}

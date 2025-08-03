@@ -1,0 +1,186 @@
+Case
+Field LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Account Name	AccountId	Lookup(Account)		TRUE	
+Asset	AssetId	Lookup(Asset)		TRUE	
+Business Hours	BusinessHoursId	Lookup(Business Hours)		FALSE	
+Case Number	CaseNumber	Auto Number		TRUE	
+Case Origin	Origin	Picklist		FALSE	
+Case Owner	OwnerId	Lookup(User,Group)		TRUE	
+Case Reason	Reason	Picklist		FALSE	
+Case Source	SourceId	Lookup(Email Message,Messaging Session)		TRUE	
+Closed When Created	IsClosedOnCreate	Checkbox		FALSE	
+Contact Email	ContactEmail	Email		FALSE	
+Contact Fax	ContactFax	Phone		FALSE	
+Contact Mobile	ContactMobile	Phone		FALSE	
+Contact Name	ContactId	Lookup(Contact)		TRUE	
+Contact Phone	ContactPhone	Phone		FALSE	
+Created By	CreatedById	Lookup(User)		FALSE	
+Date/Time Closed	ClosedDate	Date/Time		TRUE	
+Date/Time Opened	CreatedDate	Date/Time		TRUE	
+Description	Description	Long Text Area(32000)		FALSE	
+Engineering Req Number	EngineeringReqNumber__c	Text(12)		FALSE	
+Entitlement Name	EntitlementId	Lookup(Entitlement)		TRUE	
+Entitlement Process End Time	SlaExitDate	Date/Time		FALSE	
+Entitlement Process Start Time	SlaStartDate	Date/Time		FALSE	
+Escalated	IsEscalated	Checkbox		FALSE	
+Internal Comments	Comments	Text Area(4000)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+Milestone Status	MilestoneStatus	Text(30)		FALSE	
+Parent Case	ParentId	Lookup(Case)		TRUE	
+Potential Liability	PotentialLiability__c	Picklist		FALSE	
+Priority	Priority	Picklist		FALSE	
+Product	Product__c	Picklist		FALSE	
+Product	ProductId	Lookup(Product)		TRUE	
+Service Contract	ServiceContractId	Lookup(Service Contract)		TRUE	
+SLA Violation	SLAViolation__c	Picklist		FALSE	
+Status	Status	Picklist		TRUE	
+Stopped	IsStopped	Checkbox		FALSE	
+Stopped Since	StopStartDate	Date/Time		FALSE	
+Subject	Subject	Text(255)		FALSE	
+Type	Type	Picklist		FALSE	
+Web Company	SuppliedCompany	Text(80)		FALSE	
+Web Email	SuppliedEmail	Email		FALSE	
+Web Name	SuppliedName	Text(80)		FALSE	
+Web Phone	SuppliedPhone	Text(40)		FALSE	
+보증	Warranty__c	Lookup(보증)		TRUE	
+서비스 신청 세부 유형	ServiceReservationTypeDetails__c	Picklist (Multi-Select)	서비스 신청 유형	FALSE	
+서비스 신청 유형	ServiceReservationType__c	Picklist		FALSE	
+서비스 신청 일시	Preferred_Date__c	Date/Time		FALSE	
+서비스 유형	Service_Type__c	Picklist		FALSE	
+수리 세부 유형	Inspection_Type_Detail__c	Picklist	수리 유형	FALSE	
+수리 유형	Inspection_Type__c	Picklist		FALSE	
+점검 기록	Inspection_Log__c	Rich Text Area(32768)		FALSE	
+점검 일자/시간	Inspection_Date__c	Date/Time		FALSE	
+정비사	TechnicianPerCase__c	Lookup(정비사)		TRUE	
+정비소	Repair_Shop__c	Lookup(정비소)		TRUE	
+
+
+정비소(Repair_Shop__c)
+SortField LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Created By	CreatedById	Lookup(User)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+Owner	OwnerId	Lookup(User,Group)		TRUE	
+시/군/구	City__c	Picklist	시/도	FALSE	
+시/도	Province__c	Picklist		FALSE	
+전화번호	Phone_Number__c	Phone		FALSE	
+정비소 이름	Name	Text(80)		TRUE	
+주소	Address__c	Long Text Area(1000)			
+
+정비사(Technician__c)
+SortField LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Created By	CreatedById	Lookup(User)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+Owner	OwnerId	Lookup(User,Group)		TRUE	
+정비사 이름	Name	Text(80)		TRUE	
+정비소	TechnicianRepairShop__c	Lookup(정비소)		TRUE	
+
+기술역량(Skillset__c)
+SortField LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Created By	CreatedById	Lookup(User)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+Owner	OwnerId	Lookup(User,Group)		TRUE	
+기술 역량 이름	Name	Text(80)		TRUE	
+
+정비사 기술 역량(TechnicianSkillset__c)
+SortField LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Created By	CreatedById	Lookup(User)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+기술역량	SkillsetperTechnician__c	Master-Detail(기술역량)		TRUE	
+번호	Name	Auto Number		TRUE	
+정비사	SkillsetTechnician__c	Master-Detail(정비사)		TRUE	
+
+정비사 근무시간(WorkingHour__c)
+Field LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+Created By	CreatedById	Lookup(User)		FALSE	
+Last Modified By	LastModifiedById	Lookup(User)		FALSE	
+레코드 번호	Name	Auto Number		TRUE	
+요일 선택	OperationTechnician__c	Master-Detail(운영시간)		TRUE	
+정비사 선택	SelectTechnician__c	Master-Detail(정비사)		TRUE	
+
+운영시간(OperatingHours__c)
+Field LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed
+Created By	CreatedById	Lookup(User)		FALSE
+Last Modified By	LastModifiedById	Lookup(User)		FALSE
+Owner	OwnerId	Lookup(User,Group)		TRUE
+마감 시간	EndOperation__c	Time		FALSE
+오픈 시간	StartOperation__c	Time		FALSE
+요일	Name	Text(80)		TRUE
+정비소	OperationRepairShop__c	Lookup(정비소)		TRUE
+
+Field LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed
+Account Name	Name	Name		TRUE
+Salutation	Salutation	Picklist		FALSE
+First Name	FirstName	Text(40)		FALSE
+Last Name	LastName	Text(80)		FALSE
+Account Number	AccountNumber	Text(40)		FALSE
+Account Owner	OwnerId	Lookup(User)		TRUE
+Account Record Type	RecordTypeId	Record Type		TRUE
+Account Site	Site	Text(80)		FALSE
+Account Source	AccountSource	Picklist		FALSE
+AccountLead	AccountLead__c	Lookup(Lead)		TRUE
+Active	Active__c	Picklist		FALSE
+Annual Revenue	AnnualRevenue	Currency(18, 0)		FALSE
+Assistant	PersonAssistantName	Text(40)		FALSE
+Asst. Phone	PersonAssistantPhone	Phone		FALSE
+Billing Address	BillingAddress	Address		FALSE
+Birthdate	PersonBirthdate	Date		FALSE
+Channel Program Level Name	ChannelProgramLevelName	Text(255)		FALSE
+Channel Program Name	ChannelProgramName	Text(255)		FALSE
+Clean Status	CleanStatus	Picklist		TRUE
+Created By	CreatedById	Lookup(User)		FALSE
+Customer Portal Account	IsCustomerPortal	Checkbox		FALSE
+Customer Priority	CustomerPriority__c	Picklist		FALSE
+D&B Company	DandbCompanyId	Lookup(D&B Company)		TRUE
+D-U-N-S Number	DunsNumber	Text(9)		FALSE
+Data.com Key	Jigsaw	Text(20)		FALSE
+Department	PersonDepartment	Text(80)		FALSE
+Description	Description	Long Text Area(32000)		FALSE
+Do Not Call	PersonDoNotCall	Checkbox		FALSE
+Einstein Account Tier	Tier	Text(2)		FALSE
+Email	PersonEmail	Email		FALSE
+Email Opt Out	PersonHasOptedOutOfEmail	Checkbox		FALSE
+Employees	NumberOfEmployees	Number(8, 0)		FALSE
+Fax	Fax	Phone		FALSE
+Fax Opt Out	PersonHasOptedOutOfFax	Checkbox		FALSE
+Gender Identity	PersonGenderIdentity	Picklist		FALSE
+Home Phone	PersonHomePhone	Phone		FALSE
+Individual	PersonIndividualId	Lookup(Individual)		FALSE
+Industry	Industry	Picklist		FALSE
+Languages	Languages__pc	Text(100)		FALSE
+Last Modified By	LastModifiedById	Lookup(User)		FALSE
+Last Stay-in-Touch Request Date	PersonLastCURequestDate	Date/Time		FALSE
+Last Stay-in-Touch Save Date	PersonLastCUUpdateDate	Date/Time		FALSE
+Lead Source	PersonLeadSource	Picklist		FALSE
+Level	Level__pc	Picklist		FALSE
+Mailing Address	PersonMailingAddress	Address		FALSE
+Mobile	PersonMobilePhone	Phone		FALSE
+NAICS Code	NaicsCode	Text(8)		FALSE
+NAICS Description	NaicsDesc	Text(120)		FALSE
+Number of Locations	NumberofLocations__c	Number(3, 0)		FALSE
+Operating Hours	OperatingHoursId	Lookup(Operating Hours)		TRUE
+Other Address	PersonOtherAddress	Address		FALSE
+Other Phone	PersonOtherPhone	Phone		FALSE
+Ownership	Ownership	Picklist		FALSE
+Parent Account	ParentId	Hierarchy		TRUE
+Partner Account	IsPartner	Checkbox		FALSE
+Phone	Phone	Phone		FALSE
+Pronouns	PersonPronouns	Picklist		FALSE
+Rating	Rating	Picklist		FALSE
+Shipping Address	ShippingAddress	Address		FALSE
+SIC Code	Sic	Text(20)		FALSE
+SIC Description	SicDesc	Text(80)		FALSE
+SLA	SLA__c	Picklist		FALSE
+SLA Expiration Date	SLAExpirationDate__c	Date		FALSE
+SLA Serial Number	SLASerialNumber__c	Text(10)		FALSE
+Ticker Symbol	TickerSymbol	Text(20)		FALSE
+Title	PersonTitle	Text(80)		FALSE
+Tradestyle	Tradestyle	Text(255)		FALSE
+Type	Type	Picklist		FALSE
+Upsell Opportunity	UpsellOpportunity__c	Picklist		FALSE
+Website	Website	URL(255)		FALSE
+Year Started	YearStarted	Text(4)		FALSE
+마케팅 수신 동의	Marketing_Consent__c	Checkbox		FALSE
+성별	Gender__c	Picklist		FALSE
+자산	Owned_Vehicle__c	Lookup(Asset)		TRUE
+
+

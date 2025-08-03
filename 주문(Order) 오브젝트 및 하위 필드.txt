@@ -1,0 +1,47 @@
+주문(Order) 오브젝트 및 하위 필드
+
+필드 레이블Sorted Ascending	Sort필드 이름	Sort데이터 유형	Sort제어 필드	Sort색인화됨	작업
+Naver Latitude	Naver_Latitude__c	숫자(10, 8)		거짓	
+Naver Longitude	Naver_Longitude__c	숫자(10, 8)		거짓	
+PO 번호	PoNumber	텍스트(80)		거짓	
+PO 일자	PoDate	날짜		거짓	
+가격 목록	Pricebook2Id	조회(가격 목록)		참	
+견적	QuoteId	조회(견적)		참	
+계약 담당자	Sales_Rep__c	조회(사용자)		참	
+계약 번호	ContractId	조회(계약)		참	
+계약 이름	ContractName	텍스트(80)		거짓	
+계약 종료 날짜	ContractEndDate	날짜		거짓	
+계정 번호	AccountNumber	텍스트(40)		거짓	
+계정 이름	AccountId	조회(계정)		참	
+고객 인증 일자	CustomerAuthorizedDate	날짜		거짓	
+기회	OpportunityId	조회(기회)		참	
+납품일자	Delivery_Date__c	날짜		거짓	
+배송 상태	Delivery_Status__c	선택 목록		거짓	
+배송지	ShippingAddress	주소		거짓	
+배송지 연락처	ShipToContactId	조회(연락처)		참	
+보험 가입 여부	InsuranceStatus__c	확인란		거짓	
+상태	Status	선택 목록		거짓	
+설명	Description	긴 텍스트 영역(32000)		거짓	
+요금 청구 연락처	BillToContactId	조회(연락처)		참	
+인증 고객	CustomerAuthorizedById	조회(연락처)		참	
+인증 회사	CompanyAuthorizedById	조회(사용자)		거짓	
+자동화 처리 여부	Is_Automated__c	확인란		거짓	
+작성자	CreatedById	조회(사용자)		거짓	
+주문 금액	TotalAmount	통화(16, 0)		거짓	
+주문 마감 일자	EndDate	날짜		거짓	
+주문 번호	OrderNumber	자동 번호		참	
+주문 소유자	OwnerId	조회(사용자,그룹)		참	
+주문 시작 일자	EffectiveDate	날짜		참	
+주문 유형	Type	선택 목록		거짓	
+주문 이름	Name	텍스트(80)		참	
+주문 일자	EffectiveDate__c	날짜		거짓	
+주문 참조 번호	OrderReferenceNumber	텍스트(80)		참	
+주문 채널	Order_Channel__c	선택 목록		거짓	
+차대번호	VIN__c	텍스트(17) (고유하며 대/소문자 구분 안 함)		참	
+청구지	BillingAddress	주소		거짓	
+최종 수정자	LastModifiedById	조회(사용자)		거짓	
+최초 주문	OriginalOrderId	조회(주문)		참	
+축소 주문	IsReductionOrder	확인란		거짓	
+활성화된 일자	ActivatedDate	날짜/시간		참	
+활성화한 사람	ActivatedById	조회(사용자)		거짓	
+회사 인증 일자	CompanyAuthorizedDate	날짜

@@ -1,0 +1,64 @@
+<template>
+    <div class="vehicle-parts-container">
+        <div class="parts-header">
+            <h3 class="parts-title">부품 재고율</h3>
+        </div>
+        
+        <!-- 검색창 -->
+        <div class="search-container">
+            <lightning-input
+                type="search"
+                label="분류명으로 검색"
+                placeholder="분류명을 입력하세요 (예: 엔진, 배터리, 에어컨 등)"
+                value={searchTerm}
+                onchange={handleSearchChange}
+                class="search-input">
+            </lightning-input>
+        </div>
+        
+        <template if:true={filteredParts}>
+            <div class="parts-list">
+                <template for:each={filteredParts} for:item="part">
+                    <div key={part.Id} class="part-item">
+                        <!-- 부품 이미지 -->
+                        <div class="part-image-container">
+                            <template if:true={part.ImageURL}>
+                                <img src={part.ImageURL} alt={part.Name} class="part-image" />
+                            </template>
+                        </div>
+                        
+                        <!-- 부품 정보 -->
+                        <div class="part-info">
+                            <h4 class="part-name">{part.Name}</h4>
+                            <div class="part-details">
+                                <div class="detail-item">재고: {part.Quantity}개</div>
+                                <div class="detail-item">분류: {part.classificationLabel}</div>
+                            </div>
+                            
+                            <!-- 재고율 게이지 -->
+                            <div class="stock-gauge">
+                                <span class="stock-percentage">{part.stockRateFormatted}%</span>
+                                <div class="gauge-bar">
+                                    <div class="gauge-fill" style={part.gaugeStyle}></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </template>
+        
+        <template if:true={isLoading}>
+            <div class="loading-container">
+                <lightning-spinner alternative-text="부품 정보를 불러오는 중..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+        
+        <template if:true={error}>
+            <div class="error-container">
+                <lightning-icon icon-name="utility:error" variant="error" size="small"></lightning-icon>
+                <span class="error-message">{error}</span>
+            </div>
+        </template>
+    </div>
+</template>

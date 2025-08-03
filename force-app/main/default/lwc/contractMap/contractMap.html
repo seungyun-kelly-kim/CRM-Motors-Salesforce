@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="주소 검색 및 지도">
+        <lightning-input label="주소 검색" onchange={handleSearch} type="search" value={searchQuery}></lightning-input>
+
+        <template if:true={suggestions}>
+            <ul class="suggestions">
+                <template for:each={suggestions} for:item="item">
+                    <li key={item.place_id} data-id={item.place_id} onclick={handleSelect}>
+                        {item.description}
+                    </li>
+                </template>
+            </ul>
+        </template>
+
+        <!-- 상세주소 입력창 -->
+        <template if:true={showDetailInput}>
+            <lightning-input label="상세 주소 입력" onchange={handleDetailChange} value={detailAddress}></lightning-input>
+            <lightning-button label="저장하기" onclick={handleSaveFullAddress} variant="brand" class="slds-m-top_small"></lightning-button>
+        </template>
+
+        <lightning-map
+            map-markers={mapMarkers}
+            zoom-level="15"
+            center={mapCenter}
+        ></lightning-map>
+    </lightning-card>
+</template>

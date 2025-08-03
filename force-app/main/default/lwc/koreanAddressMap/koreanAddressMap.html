@@ -1,0 +1,70 @@
+<template>
+    <lightning-card title="한국 주소 검색 및 지도">
+        <div class="slds-p-horizontal_medium">
+            <!-- 주소 검색 입력창 -->
+            <div class="address-search-container">
+                <lightning-input 
+                    label="주소 검색" 
+                    value={searchQuery}
+                    oninput={handleSearchInput}
+                    onblur={handleBlur}
+                    placeholder="예: 서울특별시 강남구, 부산 해운대구 등"
+                    type="search">
+                </lightning-input>
+                
+                <!-- 자동완성 주소 목록 -->
+                <template if:true={addressSuggestions}>
+                    <template if:true={addressSuggestions.length}>
+                        <div class="address-suggestions">
+                            <template for:each={addressSuggestions} for:item="suggestion">
+                                <div key={suggestion.name} 
+                                     class="address-item" 
+                                     data-name={suggestion.name}
+                                     onclick={handleSelectAddress}>
+                                    <lightning-icon icon-name="utility:location" size="x-small" class="slds-m-right_x-small"></lightning-icon>
+                                    {suggestion.name}
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+                </template>
+            </div>
+
+            <!-- 상세주소 입력 -->
+            <template if:true={showDetailInput}>
+                <div class="slds-m-top_medium">
+                    <lightning-input 
+                        label="상세 주소" 
+                        value={detailAddress}
+                        onchange={handleDetailChange}
+                        placeholder="동, 호수 등 상세 주소를 입력하세요">
+                    </lightning-input>
+                    <div class="slds-m-top_small">
+                        <lightning-button 
+                            label="주소 저장" 
+                            onclick={handleSaveAddress}
+                            variant="brand"
+                            class="slds-m-right_small">
+                        </lightning-button>
+                        <lightning-button 
+                            label="취소" 
+                            onclick={handleCancel}
+                            variant="neutral">
+                        </lightning-button>
+                    </div>
+                </div>
+            </template>
+
+            <!-- 지도 표시 -->
+            <div class="slds-m-top_medium">
+                <template if:true={mapCenter}>
+                    <lightning-map
+                        map-markers={mapMarkers}
+                        zoom-level="15"
+                        center={mapCenter}>
+                    </lightning-map>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>

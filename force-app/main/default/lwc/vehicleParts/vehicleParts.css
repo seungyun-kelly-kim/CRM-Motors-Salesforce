@@ -1,0 +1,306 @@
+.vehicle-parts-container {
+    padding: 0;
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+    height: auto;
+    min-height: auto;
+}
+
+.parts-header {
+    margin-bottom: 0;
+    text-align: left;
+    border-bottom: none;
+    padding: 0.5rem;
+    background-color: #ffffff;
+}
+
+.parts-title {
+    font-size: 1.0rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+/* 검색창 스타일 */
+.search-container {
+    padding: 0.5rem;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.search-input {
+    margin-bottom: 0;
+}
+
+.search-input lightning-input {
+    --slds-c-input-sizing-border: 1px solid #dee2e6;
+    --slds-c-input-border-radius: 8px;
+    --slds-c-input-font-size: 0.875rem;
+}
+
+.search-input input {
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-input input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+    outline: 0;
+}
+
+.parts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.part-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 0;
+    padding: 0.5rem;
+    box-shadow: none;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.part-item:hover {
+    background-color: #f8f9fa;
+}
+
+/* 부품 이미지 스타일 */
+.part-image-container {
+    width: 40px;
+    height: 40px;
+    margin-right: 0.75rem;
+    overflow: hidden;
+    border-radius: 0;
+    background: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: none;
+}
+
+.part-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.part-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.part-name {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #212529;
+    margin: 0 0 0.25rem 0;
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.part-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.detail-item {
+    font-size: 0.7rem;
+    color: #495057;
+    font-weight: 400;
+    line-height: 1.1;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* 재고율 게이지 스타일 */
+.stock-gauge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stock-percentage {
+    font-weight: 600;
+    font-size: 0.7rem;
+    color: #212529;
+    min-width: 28px;
+    text-align: right;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    letter-spacing: -0.01em;
+}
+
+.gauge-bar {
+    flex: 0.25;
+    height: 6px;
+    background-color: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gauge-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.6s ease-in-out;
+}
+
+/* 재고율별 색상 */
+.gauge-fill[data-percentage="0"] {
+    background-color: #6c757d;
+}
+
+.gauge-fill[data-percentage*="1"]:not([data-percentage*="10"]) {
+    background-color: #dc3545;
+}
+
+.gauge-fill[data-percentage*="2"] {
+    background-color: #fd7e14;
+}
+
+.gauge-fill[data-percentage*="3"],
+.gauge-fill[data-percentage*="4"] {
+    background-color: #ffc107;
+}
+
+.gauge-fill[data-percentage*="5"],
+.gauge-fill[data-percentage*="6"],
+.gauge-fill[data-percentage*="7"] {
+    background-color: #17a2b8;
+}
+
+.gauge-fill[data-percentage*="8"],
+.gauge-fill[data-percentage*="9"] {
+    background-color: #28a745;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -20px 0;
+    }
+    100% {
+        background-position: 20px 0;
+    }
+}
+
+/* 시리얼 번호 */
+.serial-number {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: #e3f2fd;
+    border-radius: 6px;
+    border-left: 4px solid #1976d2;
+}
+
+.serial-label {
+    font-weight: 600;
+    color: #1565c0;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+}
+
+.serial-value {
+    font-family: 'Courier New', monospace;
+    font-weight: 600;
+    color: #0d47a1;
+    font-size: 0.9rem;
+}
+
+/* 로딩 및 에러 상태 */
+.loading-container,
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    margin: 2rem 0;
+}
+
+.error-container {
+    background: #fff5f5;
+    border: 1px solid #feb2b2;
+    border-radius: 8px;
+    color: #c53030;
+}
+
+.error-message {
+    margin-left: 0.5rem;
+    font-weight: 500;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .parts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .part-card {
+        padding: 1rem;
+    }
+    
+    .parts-title {
+        font-size: 1.25rem;
+    }
+    
+    .detail-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .stock-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+}
+
+/* 다크 모드 지원 (미래 확장용) */
+@media (prefers-color-scheme: dark) {
+    .vehicle-parts-container {
+        background-color: #1a1a1a;
+        color: #ffffff;
+    }
+    
+    .part-card {
+        background: #2d2d2d;
+        border-color: #404040;
+    }
+    
+    .part-name {
+        color: #64b5f6;
+    }
+    
+    .detail-label {
+        color: #b0b0b0;
+    }
+    
+    .detail-value {
+        color: #ffffff;
+    }
+    
+    .stock-gauge-container {
+        background: #3a3a3a;
+        border-color: #555555;
+    }
+}

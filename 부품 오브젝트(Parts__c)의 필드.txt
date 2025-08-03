@@ -1,0 +1,18 @@
+부품 오브젝트(Parts__c)의 필드
+Created By	CreatedById	Lookup(User)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Owner	OwnerId	Lookup(User,Group)		True	
+가격	Price__c	Currency(18, 0)		False	
+부품	Name	Text(80)		True	
+분류	PartsClassification__c	Picklist		False	
+재고	Quantity__c	Number(18, 0)
+
+PartsClassification__c 의 picklist 값
+Values	API Name
+엔진/모터	EngineMotor
+변속기	Gearbox
+배터리	Battery
+에어컨	AirCon
+퓨즈/램프/배터리	Fuse
+와이퍼 블레이드	Wiper
+기준 재고	StandardInventory__c

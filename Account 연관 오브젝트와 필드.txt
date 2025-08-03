@@ -1,0 +1,264 @@
+Account 연관 오브젝트와 필드
+
+Account
+Fields & Relationships
+75 Items, Sorted by Field Label
+
+Quick Find
+Quick Find
+SortField LabelSorted Ascending	SortField Name	SortData Type	SortControlling Field	SortIndexed	Actions
+1년차 보증	OneYearW__c	Date		False	
+Account Name	Name	Name		True	
+Salutation	Salutation	Picklist		False	
+First Name	FirstName	Text(40)		False	
+Last Name	LastName	Text(80)		False	
+Account Number	AccountNumber	Text(40)		False	
+Account Owner	OwnerId	Lookup(User)		True	
+Account Record Type	RecordTypeId	Record Type		True	
+Account Site	Site	Text(80)		False	
+Account Source	AccountSource	Picklist		False	
+AccountLead	AccountLead__c	Lookup(Lead)		True	
+Active	Active__c	Picklist		False	
+Annual Revenue	AnnualRevenue	Currency(18, 0)		False	
+Assistant	PersonAssistantName	Text(40)		False	
+Asst. Phone	PersonAssistantPhone	Phone		False	
+Billing Address	BillingAddress	Address		False	
+Birthdate	PersonBirthdate	Date		False	
+Channel Program Level Name	ChannelProgramLevelName	Text(255)		False	
+Channel Program Name	ChannelProgramName	Text(255)		False	
+Clean Status	CleanStatus	Picklist		True	
+Created By	CreatedById	Lookup(User)		False	
+Customer Portal Account	IsCustomerPortal	Checkbox		False	
+Customer Priority	CustomerPriority__c	Picklist		False	
+D&B Company	DandbCompanyId	Lookup(D&B Company)		True	
+D-U-N-S Number	DunsNumber	Text(9)		False	
+Data.com Key	Jigsaw	Text(20)		False	
+Department	PersonDepartment	Text(80)		False	
+Description	Description	Long Text Area(32000)		False	
+Do Not Call	PersonDoNotCall	Checkbox		False	
+Einstein Account Tier	Tier	Text(2)		False	
+Email	PersonEmail	Email		False	
+Email Opt Out	PersonHasOptedOutOfEmail	Checkbox		False	
+Employees	NumberOfEmployees	Number(8, 0)		False	
+Fax	Fax	Phone		False	
+Fax Opt Out	PersonHasOptedOutOfFax	Checkbox		False	
+Gender Identity	PersonGenderIdentity	Picklist		False	
+Home Phone	PersonHomePhone	Phone		False	
+Individual	PersonIndividualId	Lookup(Individual)		False	
+Industry	Industry	Picklist		False	
+Languages	Languages__pc	Text(100)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Last Stay-in-Touch Request Date	PersonLastCURequestDate	Date/Time		False	
+Last Stay-in-Touch Save Date	PersonLastCUUpdateDate	Date/Time		False	
+Lead Source	PersonLeadSource	Picklist		False	
+Level	Level__pc	Picklist		False	
+Mailing Address	PersonMailingAddress	Address		False	
+Mobile	PersonMobilePhone	Phone		False	
+NAICS Code	NaicsCode	Text(8)		False	
+NAICS Description	NaicsDesc	Text(120)		False	
+Number of Locations	NumberofLocations__c	Number(3, 0)		False	
+Operating Hours	OperatingHoursId	Lookup(Operating Hours)		True	
+Other Address	PersonOtherAddress	Address		False	
+Other Phone	PersonOtherPhone	Phone		False	
+Ownership	Ownership	Picklist		False	
+Parent Account	ParentId	Hierarchy		True	
+Partner Account	IsPartner	Checkbox		False	
+Phone	Phone	Phone		False	
+Pronouns	PersonPronouns	Picklist		False	
+Rating	Rating	Picklist		False	
+Shipping Address	ShippingAddress	Address		False	
+SIC Code	Sic	Text(20)		False	
+SIC Description	SicDesc	Text(80)		False	
+SLA	SLA__c	Picklist		False	
+SLA Expiration Date	SLAExpirationDate__c	Date		False	
+SLA Serial Number	SLASerialNumber__c	Text(10)		False	
+Ticker Symbol	TickerSymbol	Text(20)		False	
+Title	PersonTitle	Text(80)		False	
+Tradestyle	Tradestyle	Text(255)		False	
+Type	Type	Picklist		False	
+Upsell Opportunity	UpsellOpportunity__c	Picklist		False	
+Website	Website	URL(255)		False	
+Year Started	YearStarted	Text(4)		False	
+마케팅 수신 동의	Marketing_Consent__c	Checkbox		False	
+성별	Gender__c	Picklist		False	
+자산	Owned_Vehicle__c	Lookup(Asset)
+
+Warranty__c
+Created By	CreatedById	Lookup(User)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Owner	OwnerId	Lookup(User,Group)		True	
+관련 고객	Warranty_Related_Account__c	Lookup(Account)		True	
+등록 일자	Registration_Date__c	Date		False	
+만료 일자	Expiration_Date__c	Formula (Date)		False	
+보증 개월 수	Warranty_Period__c	Number(18, 0)		False	
+보증 이름	Name	Text(80)		True	
+보증 주행거리	Warranty_Mileage__c	Number(18, 0)		False	
+연결 자산	Warranty_Related_Asset__c	Lookup(Asset)
+
+Opportunity
+Account Name	AccountId	Lookup(Account)		True	
+Amount	Amount	Currency(16, 0)		False	
+Close Date	CloseDate	Date		True	
+Contract	ContractId	Lookup(Contract)		True	
+Created By	CreatedById	Lookup(User)		False	
+Current Generator(s)	CurrentGenerators__c	Text(100)		False	
+Delivery/Installation Status	DeliveryInstallationStatus__c	Picklist		False	
+Description	Description	Long Text Area(32000)		False	
+Expected Revenue	ExpectedRevenue	Currency(16, 0)		False	
+Forecast Category	ForecastCategoryName	Picklist		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Lead Source	LeadSource	Picklist		False	
+Main Competitor(s)	MainCompetitors__c	Text(100)		False	
+Next Step	NextStep	Text(255)		False	
+Opportunity Name	Name	Text(120)		True	
+Opportunity Owner	OwnerId	Lookup(User)		True	
+Opportunity Score	IqScore	Number(9, 0)		False	
+Order Number	OrderNumber__c	Text(8)		False	
+Partner Account	PartnerAccountId	Lookup(Account)		True	
+Price Book	Pricebook2Id	Lookup(Price Book)		True	
+Primary Campaign Source	CampaignId	Lookup(Campaign)		True	
+Private	IsPrivate	Checkbox		False	
+Probability (%)	Probability	Percent(3, 0)		False	
+Quantity	TotalOpportunityQuantity	Number(16, 2)		False	
+Stage	StageName	Picklist		False	
+Synced Quote	SyncedQuoteId	Lookup(Quote)		False	
+Tracking Number	TrackingNumber__c	Text(12)		False	
+Type	Type	Picklist		False	
+시승	Test_Drive__c	Lookup(시승)		True	
+영업 담당자	Sales_Person_InCharge__c	Lookup(User)		True
+
+Contract
+Account Name	AccountId	Lookup(Account)		True	
+Activated By	ActivatedById	Lookup(User)		False	
+Activated Date	ActivatedDate	Date/Time		False	
+Billing Address	BillingAddress	Address		False	
+Company Signed By	CompanySignedId	Lookup(User)		False	
+Company Signed Date	CompanySignedDate	Date		False	
+Contract End Date	EndDate	Date		True	
+Contract Name	Name	Text(80)		True	
+Contract Number	ContractNumber	Auto Number		True	
+Contract Owner	OwnerId	Lookup(User)		True	
+Contract Start Date	StartDate	Date		False	
+Contract Term (months)	ContractTerm	Number(4, 0)		False	
+Created By	CreatedById	Lookup(User)		False	
+Customer Signed By	CustomerSignedId	Lookup(Contact)		True	
+Customer Signed Date	CustomerSignedDate	Date		False	
+Customer Signed Title	CustomerSignedTitle	Text(40)		False	
+Description	Description	Long Text Area(32000)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Owner Expiration Notice	OwnerExpirationNotice	Picklist		False	
+Price Book	Pricebook2Id	Lookup(Price Book)		True	
+Product	Product__c	Lookup(Product)		True	
+Shipping Address	ShippingAddress	Address		False	
+Special Terms	SpecialTerms	Text Area(4000)		False	
+Status	Status	Picklist		False	
+결제 방식	Payment_Method__c	Picklist		False	
+계약 담당자	Sales_Rep__c	Lookup(User)		True	
+계약 행 항목	contractline__c	Lookup(Contract Line Item)		True	
+기회	opp__c	Lookup(Opportunity)		True	
+보험 가입 여부	Insurance_Confirmed__c	Checkbox		False	
+차량 구성 요약	Field2__c	Text(255)		False	
+총 결제 금액	Field1__c	Currency(18, 0)
+
+Order
+Account Name	AccountId	Lookup(Account)		True	
+Account Number	AccountNumber	Text(40)		False	
+Activated By	ActivatedById	Lookup(User)		False	
+Activated Date	ActivatedDate	Date/Time		True	
+Bill To Contact	BillToContactId	Lookup(Contact)		True	
+Billing Address	BillingAddress	Address		False	
+Company Authorized By	CompanyAuthorizedById	Lookup(User)		False	
+Company Authorized Date	CompanyAuthorizedDate	Date		False	
+Contract End Date	ContractEndDate	Date		False	
+Contract Name	ContractName	Text(80)		False	
+Contract Number	ContractId	Lookup(Contract)		True	
+Created By	CreatedById	Lookup(User)		False	
+Customer Authorized By	CustomerAuthorizedById	Lookup(Contact)		True	
+Customer Authorized Date	CustomerAuthorizedDate	Date		False	
+Description	Description	Long Text Area(32000)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Naver Latitude	Naver_Latitude__c	Number(10, 8)		False	
+Naver Longitude	Naver_Longitude__c	Number(10, 8)		False	
+Opportunity	OpportunityId	Lookup(Opportunity)		True	
+Order Amount	TotalAmount	Currency(16, 0)		False	
+Order End Date	EndDate	Date		False	
+Order Name	Name	Text(80)		True	
+Order Number	OrderNumber	Auto Number		True	
+Order Owner	OwnerId	Lookup(User,Group)		True	
+Order Reference Number	OrderReferenceNumber	Text(80)		True	
+Order Start Date	EffectiveDate	Date		True	
+Order Type	Type	Picklist		False	
+Original Order	OriginalOrderId	Lookup(Order)		True	
+PO Date	PoDate	Date		False	
+PO Number	PoNumber	Text(80)		False	
+Price Book	Pricebook2Id	Lookup(Price Book)		True	
+Quote	QuoteId	Lookup(Quote)		True	
+Reduction Order	IsReductionOrder	Checkbox		False	
+Ship To Contact	ShipToContactId	Lookup(Contact)		True	
+Shipping Address	ShippingAddress	Address		False	
+Status	Status	Picklist		False	
+계약 담당자	Sales_Rep__c	Lookup(User)		True	
+납품일자	Delivery_Date__c	Date		False	
+배송 상태	Delivery_Status__c	Picklist		False	
+보험 가입 여부	InsuranceStatus__c	Checkbox		False	
+자동화 처리 여부	Is_Automated__c	Checkbox		False	
+주문 일자	EffectiveDate__c	Date		False	
+주문 채널	Order_Channel__c	Picklist		False	
+차대번호	VIN__c	Text(17) (Unique Case Insensitive)
+
+
+Case
+Account Name	AccountId	Lookup(Account)		True	
+Asset	AssetId	Lookup(Asset)		True	
+Business Hours	BusinessHoursId	Lookup(Business Hours)		False	
+Case Number	CaseNumber	Auto Number		True	
+Case Origin	Origin	Picklist		False	
+Case Owner	OwnerId	Lookup(User,Group)		True	
+Case Reason	Reason	Picklist		False	
+Case Source	SourceId	Lookup(Email Message,Messaging Session)		True	
+Closed When Created	IsClosedOnCreate	Checkbox		False	
+Contact Email	ContactEmail	Email		False	
+Contact Fax	ContactFax	Phone		False	
+Contact Mobile	ContactMobile	Phone		False	
+Contact Name	ContactId	Lookup(Contact)		True	
+Contact Phone	ContactPhone	Phone		False	
+Created By	CreatedById	Lookup(User)		False	
+Date/Time Closed	ClosedDate	Date/Time		True	
+Date/Time Opened	CreatedDate	Date/Time		True	
+Description	Description	Long Text Area(32000)		False	
+Engineering Req Number	EngineeringReqNumber__c	Text(12)		False	
+Entitlement Name	EntitlementId	Lookup(Entitlement)		True	
+Entitlement Process End Time	SlaExitDate	Date/Time		False	
+Entitlement Process Start Time	SlaStartDate	Date/Time		False	
+Escalated	IsEscalated	Checkbox		False	
+Internal Comments	Comments	Text Area(4000)		False	
+Last Modified By	LastModifiedById	Lookup(User)		False	
+Milestone Status	MilestoneStatus	Text(30)		False	
+Parent Case	ParentId	Lookup(Case)		True	
+Potential Liability	PotentialLiability__c	Picklist		False	
+Priority	Priority	Picklist		False	
+Product	Product__c	Picklist		False	
+Product	ProductId	Lookup(Product)		True	
+Service Contract	ServiceContractId	Lookup(Service Contract)		True	
+SLA Violation	SLAViolation__c	Picklist		False	
+Status	Status	Picklist		True	
+Stopped	IsStopped	Checkbox		False	
+Stopped Since	StopStartDate	Date/Time		False	
+Subject	Subject	Text(255)		False	
+Type	Type	Picklist		False	
+Web Company	SuppliedCompany	Text(80)		False	
+Web Email	SuppliedEmail	Email		False	
+Web Name	SuppliedName	Text(80)		False	
+Web Phone	SuppliedPhone	Text(40)		False	
+보증	Warranty__c	Lookup(보증)		True	
+서비스 신청 세부 유형	ServiceReservationTypeDetails__c	Picklist (Multi-Select)	서비스 신청 유형	False	
+서비스 신청 유형	ServiceReservationType__c	Picklist		False	
+서비스 신청 일시	Preferred_Date__c	Date/Time		False	
+서비스 유형	Service_Type__c	Picklist		False	
+수리 세부 유형	Inspection_Type_Detail__c	Picklist	수리 유형	False	
+수리 유형	Inspection_Type__c	Picklist		False	
+점검 기록	Inspection_Log__c	Rich Text Area(32768)		False	
+점검 일자/시간	Inspection_Date__c	Date/Time		False	
+정비사	TechnicianPerCase__c	Lookup(정비사)		True	
+정비소	Repair_Shop__c	Lookup(정비소)		True	
+

@@ -1,0 +1,56 @@
+<!-- ✅ 현대적 웹 레이아웃으로 수정된 파일: customerInfo.html -->
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">01</span>
+                    <span class="step-title">고객 정보 확인</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 14.3%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <!-- 고객 정보 섹션 -->
+                <div class="section">
+                    <div class="section-content">
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div class="info-label">고객명</div>
+                                <div class="info-value">{name}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">휴대폰 번호</div>
+                                <div class="info-value">{phone}</div>
+                            </div>
+                            <div class="info-item">
+                                <div class="info-label">이메일 주소</div>
+                                <div class="info-value">{email}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 다음 단계 버튼을 카드 내부로 이동 -->
+                <div class="section">
+                    <div class="action-buttons-right">
+                        <lightning-button 
+                            label="다음 단계" 
+                            variant="brand" 
+                            onclick={handleNext}
+                            icon-name="utility:forward"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

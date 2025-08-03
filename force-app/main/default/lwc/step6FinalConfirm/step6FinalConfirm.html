@@ -1,0 +1,93 @@
+<template>
+    <div class="page-container">
+        <!-- 상단 헤더 -->
+        <div class="page-header">
+            <div class="header-content">
+                <div class="step-indicator">
+                    <span class="step-number">06</span>
+                    <span class="step-title">예약 정보 최종 확인</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 85.8%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 메인 콘텐츠 -->
+        <div class="main-content">
+            <div class="unified-card">
+                <div class="section">
+                    <div class="section-content">
+
+                <div class="confirm-details">
+                    <div class="detail-row">
+                        <strong>정비소:</strong> {repairShopName}
+                    </div>
+                    <div class="detail-row">
+                        <strong>예약 날짜:</strong> {selectedDate}
+                    </div>
+                    <div class="detail-row">
+                        <strong>예약 시간:</strong> {selectedSlotTime}
+                    </div>
+                    <div class="detail-row">
+                        <strong>서비스 타입:</strong> {serviceTypeLabel}
+                    </div>
+                    <div class="detail-row">
+                        <strong>정비 항목:</strong> {serviceDetailsLabel}
+                    </div>
+                    <template if:true={showTechnicianInfo}>
+                        <div class="detail-row">
+                            <strong>담당 정비사:</strong> {technicianPreview.technicianName} 정비사
+                        </div>
+                    </template>
+                    <template if:true={description}>
+                        <div class="detail-row">
+                            <strong>추가 요청사항:</strong> {description}
+                            </div>
+                        </template>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- 정비사 배정 메시지 -->
+                <template if:true={showTechnicianInfo}>
+                    <div class="section">
+                        <div class="technician-assignment">
+                            <div class="technician-header">
+                                <lightning-icon icon-name="utility:user" size="small" class="technician-icon"></lightning-icon>
+                                <h3 class="technician-title">담당 정비사</h3>
+                            </div>
+                            <div class="technician-info">
+                                <div class="technician-message">
+                                    <strong>{technicianPreview.technicianName} 정비사</strong>가 고객님의 문제를 해결하기 위해 최선을 다해 모시겠습니다.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+
+                <!-- 버튼을 카드 내부로 이동 -->
+                <div class="section">
+                    <div class="action-buttons">
+                        <lightning-button 
+                            label="이전" 
+                            variant="neutral" 
+                            onclick={handlePrevious}
+                            icon-name="utility:back"
+                            icon-position="left">
+                        </lightning-button>
+                        <lightning-button 
+                            label="예약 확정" 
+                            variant="brand" 
+                            disabled={submitting}
+                            onclick={handleSubmit}
+                            icon-name="utility:check"
+                            icon-position="right">
+                        </lightning-button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx sfdx-lwc-jest:*)",
+      "Bash(npm run lint)"
+    ],
+    "deny": []
+  }
+}

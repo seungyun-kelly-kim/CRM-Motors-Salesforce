@@ -1,0 +1,61 @@
+<template>
+    <div class="customer-profile-card">
+        <!-- 헤더 섹션 - 파란색 배경 -->
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
+                     alt="Profile Picture" class="avatar-image" />
+            </div>
+            <div class="profile-info">
+                <h1 class="customer-name">{customerName}</h1>
+                <p class="customer-location">{address}</p>
+            </div>
+        </div>
+        
+        <!-- 세부 정보 섹션 -->
+        <div class="profile-details">
+            <div class="detail-grid">
+                <div class="detail-item">
+                    <div class="detail-label">Owner Since</div>
+                    <div class="detail-value">{ownerSince}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">Owner ID</div>
+                    <div class="detail-value">{ownerId}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">Email</div>
+                    <div class="detail-value">{email}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">Phone</div>
+                    <div class="detail-value">{phone}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">생년월일</div>
+                    <div class="detail-value">{birthdate}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">성별</div>
+                    <div class="detail-value">{gender}</div>
+                </div>
+                
+                <div class="detail-item">
+                    <div class="detail-label">마케팅 수신동의</div>
+                    <div class={marketingConsentClass}>{marketingConsent}</div>
+                </div>
+            </div>
+        </div>
+        
+        <template if:true={error}>
+            <div class="error-message">
+                고객 정보를 불러오는 중 오류가 발생했습니다.
+            </div>
+        </template>
+    </div>
+</template>

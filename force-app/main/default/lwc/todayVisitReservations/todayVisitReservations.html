@@ -1,0 +1,70 @@
+<template>
+    <div class="page-container">
+        <!-- 헤더 -->
+        <div class="header-section">
+            <div class="header-content">
+                <h2 class="page-title">오늘의 방문 예약</h2>
+                <div class="header-actions">
+                    <span class="reservation-count">{reservationCount}건</span>
+                    <lightning-button
+                        variant="neutral"
+                        label="새로고침"
+                        icon-name="utility:refresh"
+                        onclick={handleRefresh}
+                        class="refresh-button">
+                    </lightning-button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 로딩 스피너 -->
+        <template if:true={isLoading}>
+            <div class="loading-container">
+                <lightning-spinner alternative-text="예약 정보 로딩 중..." size="medium"></lightning-spinner>
+            </div>
+        </template>
+
+        <!-- 예약 목록 - 리스트뷰 스타일 -->
+        <template if:false={isLoading}>
+            <template if:true={hasReservations}>
+                <div class="list-container">
+                    <!-- 헤더 -->
+                    <div class="list-header">
+                        <div class="col-time">시간</div>
+                        <div class="col-case">케이스</div>
+                        <div class="col-subject">제목</div>
+                        <div class="col-customer">고객명</div>
+                        <div class="col-service">서비스 유형</div>
+                        <div class="col-technician">담당자</div>
+                        <div class="col-status">상태</div>
+                    </div>
+                    
+                    <!-- 데이터 행 -->
+                    <template for:each={formattedReservations} for:item="reservation">
+                        <div key={reservation.Id} class="list-row" onclick={handleRowClick} data-case-id={reservation.Id}>
+                            <div class="col-time">{reservation.formattedTime}</div>
+                            <div class="col-case">
+                                <a href={reservation.caseUrl} class="case-link">{reservation.CaseNumber}</a>
+                            </div>
+                            <div class="col-subject">{reservation.Subject}</div>
+                            <div class="col-customer">{reservation.customerName}</div>
+                            <div class="col-service">{reservation.serviceType}</div>
+                            <div class="col-technician">{reservation.technicianName}</div>
+                            <div class="col-status">
+                                <span class={reservation.statusClass}>{reservation.displayStatus}</span>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </template>
+
+            <!-- 예약 없음 -->
+            <template if:false={hasReservations}>
+                <div class="no-reservations">
+                    <h3 class="no-data-title">오늘 예약이 없습니다</h3>
+                    <p class="no-data-message">오늘 예정된 방문 예약이 없습니다.</p>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

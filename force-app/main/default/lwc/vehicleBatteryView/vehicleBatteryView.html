@@ -1,0 +1,145 @@
+<template>
+    <div class="vehicle-battery-container">
+
+        <!-- Vehicle Status Info -->
+        <div class="vehicle-status">
+            <div class="status-item">
+                <div class="status-label">Signal Quality</div>
+                <div class="status-value high">High</div>
+            </div>
+            <div class="status-item">
+                <div class="status-label">Door Control</div>
+                <div class="status-value">
+                    <lightning-icon icon-name="utility:unlock" size="x-small"></lightning-icon>
+                    <lightning-icon icon-name="utility:lock" size="x-small"></lightning-icon>
+                </div>
+            </div>
+            <div class="status-item">
+                <div class="status-label">Mileage</div>
+                <div class="status-value">72.7 km</div>
+            </div>
+            <div class="status-item">
+                <div class="status-label">Gear Mode</div>
+                <div class="status-value">Parking</div>
+            </div>
+        </div>
+
+        <!-- Vehicle Image with Battery Hover -->
+        <div class="vehicle-image-container">
+            <img 
+                src={carImageUrl}
+                alt="Vehicle with Battery"
+                class="vehicle-image"
+            />
+            
+            <!-- Battery Hover Area - 배터리 위치에만 hover 적용 -->
+            <div 
+                class="battery-hover-area"
+                onmouseenter={handleMouseEnter}
+                onmouseleave={handleMouseLeave}
+                onmousemove={handleMouseMove}
+                title="배터리 정보 보기"
+            ></div>
+            
+            <!-- Battery Tooltip -->
+            <template if:true={showBatteryTooltip}>
+                <div class="battery-tooltip" style={tooltipStyle}>
+                    <div class="tooltip-header">
+                        <lightning-icon icon-name="utility:power" size="small" class="battery-icon"></lightning-icon>
+                        <h3 class="tooltip-title">배터리 정보</h3>
+                    </div>
+                    
+                    <div class="tooltip-content">
+                        <!-- 배터리 레벨 -->
+                        <div class="battery-level-section">
+                            <div class="level-info">
+                                <span class="level-label">배터리 잔량</span>
+                                <span class="level-value">{batteryInfo.currentLevel}%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style={batteryLevelStyle}></div>
+                            </div>
+                        </div>
+
+                        <!-- 배터리 상태 -->
+                        <div class="battery-health-section">
+                            <div class="health-info">
+                                <span class="health-label">배터리 상태</span>
+                                <span class="health-value">{batteryInfo.health}%</span>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style={batteryHealthStyle}></div>
+                            </div>
+                        </div>
+
+                        <!-- 배터리 세부 정보 -->
+                        <div class="battery-details">
+                            <div class="detail-row">
+                                <span class="detail-label">배터리 타입:</span>
+                                <span class="detail-value">{batteryInfo.type}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">용량:</span>
+                                <span class="detail-value">{batteryInfo.capacity}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">제조사:</span>
+                                <span class="detail-value">{batteryInfo.manufacturer}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">전압:</span>
+                                <span class="detail-value">{batteryInfo.voltage}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">온도:</span>
+                                <span class="detail-value">{batteryInfo.temperature}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">마지막 교체:</span>
+                                <span class="detail-value">{batteryInfo.lastReplaced}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">다음 점검:</span>
+                                <span class="detail-value">{batteryInfo.nextMaintenance}</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">충전 사이클:</span>
+                                <span class="detail-value">{batteryInfo.chargingCycles}회</span>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-label">시리얼 번호:</span>
+                                <span class="detail-value">{batteryInfo.serialNumber}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+        <!-- Vehicle Events -->
+        <div class="vehicle-events">
+            <div class="events-header">
+                <lightning-icon icon-name="utility:event" size="small"></lightning-icon>
+                <h3>Vehicle Events</h3>
+            </div>
+            <div class="event-list">
+                <div class="event-item alert">
+                    <lightning-icon icon-name="utility:warning" size="x-small" variant="error"></lightning-icon>
+                    <div class="event-content">
+                        <div class="event-title">Alert</div>
+                        <div class="event-desc">Engine oil replacement needed</div>
+                        <div class="event-date">2024.6.18</div>
+                    </div>
+                </div>
+                <div class="event-item repair">
+                    <lightning-icon icon-name="utility:check" size="x-small" variant="success"></lightning-icon>
+                    <div class="event-content">
+                        <div class="event-title">Repair</div>
+                        <div class="event-desc">Tire replacement - Front left</div>
+                        <div class="event-date">2024.3.18</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
